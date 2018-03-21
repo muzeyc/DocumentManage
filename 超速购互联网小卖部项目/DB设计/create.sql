@@ -81,7 +81,8 @@ create table DM_BasicInfo (
    dmabstract     character varying(255)   null,
    pictureid     integer   null,
    createtime     character varying(20)   null,
-   startprice        not null,
+   startprice     numeric(10,2)   null,
+   dispatching     numeric(10,2)   null,
    constraint PK_DM_BasicInfo primary key (id)
 );
 ALTER TABLE DM_BasicInfo
@@ -91,7 +92,7 @@ create table UM_BasicInfo (
    id     serial   not null,
    name     character varying(50)   null,
    lv     integer   null,
-   money     character varying(100)   null,
+   money     numeric(10,2)   null,
    tel     integer   null,
    type     character varying(1)   null,
    road     character varying(1)   null,
