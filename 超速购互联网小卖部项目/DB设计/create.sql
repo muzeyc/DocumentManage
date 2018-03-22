@@ -68,34 +68,19 @@ create table Sys_Rolemenuforbid (
 ALTER TABLE Sys_Rolemenuforbid
 OWNER TO admin;
 
-create table DM_BasicInfo (
+create table Sys_CodeList (
    id     serial   not null,
-   comid     integer   null,
-   lv     integer   null,
-   state     character varying(1)   null,
-   tel     character varying(13)   null,
-   dmdesc     character varying(255)   null,
-   pictureid     integer   null,
+   parentId     character varying(5)   not null,
+   name     character varying(50)   not null,
+   codeName     character varying(50)   not null,
+   no     integer   not null,
    createtime     character varying(20)   null,
-   startprice     numeric(10,2)   null,
-   dispatching     numeric(10,2)   null,
-   constraint PK_DM_BasicInfo primary key (id)
+   createuser     character varying(50)   null,
+   updatetime     character varying(20)   null,
+   updateuser     character varying(50)   null,
+   constraint PK_Sys_CodeList primary key (id)
 );
-ALTER TABLE DM_BasicInfo
-OWNER TO admin;
-
-create table UM_BasicInfo (
-   id     serial   not null,
-   name     character varying(50)   null,
-   lv     integer   null,
-   money     numeric(10,2)   null,
-   tel     integer   null,
-   type     character varying(1)   null,
-   road     character varying(1)   null,
-   createtime     character varying(20)   null,
-   constraint PK_UM_BasicInfo primary key (id)
-);
-ALTER TABLE UM_BasicInfo
+ALTER TABLE Sys_CodeList
 OWNER TO admin;
 
 create table Sys_PictureInfo (
@@ -122,30 +107,6 @@ create table Sys_Commodity (
 ALTER TABLE Sys_Commodity
 OWNER TO admin;
 
-create table DM_Commodity (
-   dmid     integer   not null,
-   commodityid     integer   not null,
-   dmclassify     character varying(10)   null,
-   constraint PK_DM_Commodity primary key (dmid,commodityid)
-);
-ALTER TABLE DM_Commodity
-OWNER TO admin;
-
-create table Sys_CodeList (
-   id     serial   not null,
-   parentId     character varying(5)   not null,
-   name     character varying(50)   not null,
-   codeName     character varying(50)   not null,
-   no     integer   not null,
-   createtime     character varying(20)   null,
-   createuser     character varying(50)   null,
-   updatetime     character varying(20)   null,
-   updateuser     character varying(50)   null,
-   constraint PK_Sys_CodeList primary key (id)
-);
-ALTER TABLE Sys_CodeList
-OWNER TO admin;
-
 create table Sys_Rode (
    id     serial   not null,
    name     character varying(50)   null,
@@ -161,9 +122,74 @@ create table Sys_Community (
    id     serial   not null,
    roadid     integer   null,
    name     character varying(50)   null,
+   address     character varying(100)   null,
    constraint PK_Sys_Community primary key (id)
 );
 ALTER TABLE Sys_Community
+OWNER TO admin;
+
+create table DM_BasicInfo (
+   id     serial   not null,
+   comid     integer   null,
+   lv     integer   null,
+   state     character varying(1)   null,
+   tel     character varying(13)   null,
+   dmdesc     character varying(255)   null,
+   pictureid     integer   null,
+   createtime     character varying(20)   null,
+   startprice     numeric(10,2)   null,
+   dispatching     numeric(10,2)   null,
+   constraint PK_DM_BasicInfo primary key (id)
+);
+ALTER TABLE DM_BasicInfo
+OWNER TO admin;
+
+create table DM_Commodity (
+   dmid     integer   not null,
+   commodityid     integer   not null,
+   dmclassify     character varying(10)   null,
+   constraint PK_DM_Commodity primary key (dmid,commodityid)
+);
+ALTER TABLE DM_Commodity
+OWNER TO admin;
+
+create table DM_OrderMain (
+   id     serial   not null,
+   dmid     integer   not null,
+   commodityid     integer   not null,
+   comid     character varying(10)   not null,
+   umid     integer   not null,
+   orderprice     numeric(10,2)   null,
+   remark     character varying(255)   null,
+   state     character varying(1)   null,
+   constraint PK_DM_OrderMain primary key (id)
+);
+ALTER TABLE DM_OrderMain
+OWNER TO admin;
+
+create table DM_OrderDetial (
+   orderid     integer   not null,
+   commodityid     integer   not null,
+   num     integer   not null,
+   price     numeric(10,2)   not null,
+   detialstate     character varying(1)   not null,
+   constraint PK_DM_OrderDetial primary key (orderid,commodityid)
+);
+ALTER TABLE DM_OrderDetial
+OWNER TO admin;
+
+create table UM_BasicInfo (
+   id     serial   not null,
+   name     character varying(50)   null,
+   lv     integer   null,
+   money     numeric(10,2)   null,
+   tel     integer   null,
+   type     character varying(1)   null,
+   road     character varying(1)   null,
+   createtime     character varying(20)   null,
+   constraint PK_UM_BasicInfo primary key (id)
+);
+ALTER TABLE UM_BasicInfo
 OWNER TO admin;
 
 
