@@ -70,15 +70,15 @@ OWNER TO admin;
 
 create table DM_BasicInfo (
    id     serial   not null,
-   name     character varying(50)   null,
-   province     character varying(10)   null,
-   city     character varying(10)   null,
-   dmdistrict     character varying(10)   null,
-   address     character varying(100)   null,
+   comid     integer   null,
    lv     integer   null,
    state     character varying(1)   null,
    tel     character varying(13)   null,
    dmdesc     character varying(255)   null,
+   pictureid     integer   null,
+   createtime     character varying(20)   null,
+   startprice     numeric(10,2)   null,
+   dispatching     numeric(10,2)   null,
    pictureid     integer   null,
    createtime     character varying(20)   null,
    startprice     numeric(10,2)   null,
@@ -148,6 +148,26 @@ create table Sys_CodeList (
    constraint PK_Sys_CodeList primary key (id)
 );
 ALTER TABLE Sys_CodeList
+OWNER TO admin;
+
+create table Sys_Rode (
+   id     serial   not null,
+   name     character varying(50)   null,
+   province     character varying(10)   null,
+   city     character varying(10)   null,
+   dmdistrict     character varying(10)   null,
+   constraint PK_Sys_Rode primary key (id)
+);
+ALTER TABLE Sys_Rode
+OWNER TO admin;
+
+create table Sys_Community (
+   id     serial   not null,
+   roadid     integer   null,
+   name     character varying(50)   null,
+   constraint PK_Sys_Community primary key (id)
+);
+ALTER TABLE Sys_Community
 OWNER TO admin;
 
 
