@@ -79,10 +79,6 @@ create table DM_BasicInfo (
    createtime     character varying(20)   null,
    startprice     numeric(10,2)   null,
    dispatching     numeric(10,2)   null,
-   pictureid     integer   null,
-   createtime     character varying(20)   null,
-   startprice     numeric(10,2)   null,
-   dispatching     numeric(10,2)   null,
    constraint PK_DM_BasicInfo primary key (id)
 );
 ALTER TABLE DM_BasicInfo
