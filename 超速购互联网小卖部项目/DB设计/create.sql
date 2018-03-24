@@ -130,6 +130,7 @@ OWNER TO admin;
 
 create table DM_BasicInfo (
    id     serial   not null,
+   name     character varying(20)   null,
    comid     integer   null,
    lv     integer   null,
    state     character varying(1)   null,
