@@ -70,7 +70,7 @@ OWNER TO admin;
 
 create table Sys_CodeList (
    id     serial   not null,
-   parentId     character varying(5)   not null,
+   parentId     character varying(50)   not null,
    name     character varying(50)   not null,
    codeName     character varying(50)   not null,
    no     integer   not null,
