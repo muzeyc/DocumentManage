@@ -37,8 +37,8 @@ ALTER TABLE Sys_Role
 OWNER TO admin;
 
 create table Sys_Menu (
-   menuid     serial   not null,
-   id     integer   not null,
+   id     serial   not null,
+   menuid     integer   not null,
    seqno     integer   not null,
    parentid     integer   not null,
    menutitle     character varying(200)   not null,
@@ -50,7 +50,7 @@ create table Sys_Menu (
    createuser     character varying(50)   null,
    updatetime     character varying(20)   null,
    updateuser     character varying(50)   null,
-   constraint PK_Sys_Menu primary key (menuid)
+   constraint PK_Sys_Menu primary key (id)
 );
 ALTER TABLE Sys_Menu
 OWNER TO admin;
