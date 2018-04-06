@@ -14,7 +14,7 @@ insert into Sys_Role(rolename,linetype,cancreate,canedit,candelete,deleteflag,cr
 ---------------------
 --菜单管理
 DELETE FROM Sys_Menu;
-
+ 
 insert into Sys_Menu(menuid,seqno,parentid,menutitle,iconname,pagename,issystemmenu,deleteflag,createtime,createuser,updatetime,updateuser) values('100','1','0','系统管理','fa-cogs','','1','0','2017/9/13  14:45:00','admin','2017/9/13  14:45:00','admin');
 insert into Sys_Menu(menuid,seqno,parentid,menutitle,iconname,pagename,issystemmenu,deleteflag,createtime,createuser,updatetime,updateuser) values('101','1','100','菜单管理','fa-map-o','Sys001_MenuManage','1','0','2017/9/13  14:45:00','admin','2017/9/13  14:45:00','admin');
 insert into Sys_Menu(menuid,seqno,parentid,menutitle,iconname,pagename,issystemmenu,deleteflag,createtime,createuser,updatetime,updateuser) values('102','2','100','用户管理','fa-user','Sys002_UserManage','1','0','2017/9/13  14:45:00','admin','2017/9/13  14:45:00','admin');
