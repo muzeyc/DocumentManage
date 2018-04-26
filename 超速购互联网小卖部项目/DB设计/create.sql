@@ -87,7 +87,7 @@ create table Sys_PictureInfo (
    id     serial   not null,
    name     character varying(50)   null,
    type     character varying(1)   null,
-   src     character varying(100)   null,
+   src     character varying(0)   null,
    width     integer   null,
    height     integer   null,
    usetype     character varying(2)   null,
@@ -177,6 +177,17 @@ create table DM_OrderDetial (
    constraint PK_DM_OrderDetial primary key (orderid,commodityid)
 );
 ALTER TABLE DM_OrderDetial
+OWNER TO admin;
+
+create table DM_AdManager (
+   id     serial   not null,
+   pictureid     integer   not null,
+   times     character varying(8)   not null,
+   timee     character varying(8)   not null,
+   level     integer   not null,
+   constraint PK_DM_AdManager primary key (id)
+);
+ALTER TABLE DM_AdManager
 OWNER TO admin;
 
 create table UM_BasicInfo (
